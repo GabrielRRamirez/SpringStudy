@@ -1,7 +1,6 @@
-package com.ramirez.springstudy.models.doctor;
+package com.ramirez.springstudy.modules.doctor.usecase.dto;
 
-import com.ramirez.springstudy.entities.DoctorEntity;
-import com.ramirez.springstudy.models.address.Address;
+import com.ramirez.springstudy.modules.doctor.domain.entities.Doctor;
 
 public record DoctorDetailingDto(
         Long id,
@@ -9,10 +8,10 @@ public record DoctorDetailingDto(
         String email,
         String telephone,
         String crm,
-        specialty specialty,
-        Address address) {
+        com.ramirez.springstudy.modules.doctor.domain.enums.specialty specialty,
+        AddressDoctorDto address) {
 
-    public DoctorDetailingDto(DoctorEntity doctor) {
+    public DoctorDetailingDto(Doctor doctor) {
         this(
                 doctor.getId(),
                 doctor.getName(),
@@ -20,6 +19,6 @@ public record DoctorDetailingDto(
                 doctor.getTelephone(),
                 doctor.getCrm(),
                 doctor.getSpecialty(),
-                new Address(doctor.getAddress()));
+                new AddressDoctorDto(doctor.getAddress()));
     }
 }

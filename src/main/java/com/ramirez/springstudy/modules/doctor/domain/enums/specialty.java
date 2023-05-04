@@ -1,4 +1,4 @@
-package com.ramirez.springstudy.models.doctor;
+package com.ramirez.springstudy.modules.doctor.domain.enums;
 
 public enum specialty {
 

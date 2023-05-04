@@ -1,7 +1,9 @@
-package com.ramirez.springstudy.entities;
+package com.ramirez.springstudy.modules.address.domain.entities;
 
-import com.ramirez.springstudy.models.address.Address;
+import com.ramirez.springstudy.modules.doctor.usecase.dto.AddressDoctorDto;
 import jakarta.persistence.Embeddable;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,17 +12,33 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class AddressEntity {
+public class Address {
 
+    private static final String PUBLIC_PLACE_VALIDATION = "the public place should not be empty";
+    private static final String NEIGHBORHOOD_VALIDATION = "the neighborhood should not be empty";
+    private static final String CEP_VALIDATION = "the phone must have 8 numbers";
+    private static final String CITY_VALIDATION = "the city should not be empty";
+    private static final String UF_VALIDATION = "the UF should not be empty";
+
+    @NotBlank(message = PUBLIC_PLACE_VALIDATION)
     private String publicPlace;
+
+    @NotBlank(message = NEIGHBORHOOD_VALIDATION)
     private String neighborhood;
+
+    @NotBlank(message = CEP_VALIDATION)
+    @Pattern(regexp = "\\d{8}", message = CEP_VALIDATION)
     private String cep;
     private String number;
     private String complement;
+
+    @NotBlank(message = CITY_VALIDATION)
     private String city;
+
+    @NotBlank(message = UF_VALIDATION)
     private String uf;
 
-    public AddressEntity(Address address) {
+    public Address(AddressDoctorDto address) {
         this.publicPlace = address.publicPlace();
         this.neighborhood = address.neighborhood();
         this.cep = address.cep();
@@ -30,7 +48,7 @@ public class AddressEntity {
         this.uf = address.uf();
     }
 
-    public void atualizarInformacoes(Address dadosEndereco) {
+    public void atualizarInformacoes(AddressDoctorDto dadosEndereco) {
 
         if(dadosEndereco.publicPlace() != null) {
             this.publicPlace = dadosEndereco.publicPlace();

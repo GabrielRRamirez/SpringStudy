@@ -1,34 +1,17 @@
-package com.ramirez.springstudy.models.address;
+package com.ramirez.springstudy.modules.doctor.usecase.dto;
 
-import com.ramirez.springstudy.entities.AddressEntity;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Pattern;
+import com.ramirez.springstudy.modules.address.domain.entities.Address;
 
-public record Address(
-
-        @NotBlank
+public record AddressDoctorDto(
         String publicPlace,
-
-        @NotBlank
         String neighborhood,
-
-        @NotBlank
-        @Pattern(regexp = "\\d{8}")
         String cep,
-
-        @NotBlank
         String city,
-
-        @NotBlank
         String uf,
-
-
         String complement,
-
-
         String number) {
 
-    public Address(AddressEntity addressEntity) {
+    public AddressDoctorDto(Address addressEntity) {
         this(
                 addressEntity.getPublicPlace(),
                 addressEntity.getNeighborhood(),

@@ -10,6 +10,12 @@ spring:
     properties:
       hibernate:
         format_sql: true
+
     hibernate:
       ddl-auto: none
       dialect: org.hibernate.dialect.PostgreSQLDialect
+
+server:
+  error:
+    include-stacktrace: never
+    include-exception: true

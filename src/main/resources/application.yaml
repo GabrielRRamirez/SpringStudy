@@ -19,3 +19,7 @@ server:
   error:
     include-stacktrace: never
     include-exception: true
+
+api:
+  security:
+    password: ${JWT_PASSWORD:"12345678"}

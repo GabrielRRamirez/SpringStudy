@@ -1,4 +1,4 @@
-CREATE TABLE medicos (
+CREATE TABLE doctors (
 
     id SERIAL NOT NULL,
     name VARCHAR(200) NOT NULL,
@@ -13,5 +13,5 @@ CREATE TABLE medicos (
     uf CHAR(2) NOT NULL,
     city VARCHAR(100) NOT NULL,
 
-    CONSTRAINT pk_id_medicos PRIMARY KEY (id)
+    CONSTRAINT pk_id_doctor PRIMARY KEY (id)
 );

@@ -56,4 +56,9 @@ public class ErrorHandler {
     public ResponseEntity handleInvalidOrExpiredToken() {
         return ResponseEntity.status(403).body("Access Denied. Invalid or expired token!");
     }
+
+    @ExceptionHandler(ValidationException.class)
+    public ResponseEntity handleValidationException(ValidationException ex) {
+        return ResponseEntity.badRequest().body(ex.getMessage());
+    }
 }

@@ -1,6 +1,6 @@
 package com.ramirez.springstudy.modules.doctor.domain.enums;
 
-public enum specialty {
+public enum Specialty {
 
     ORTHOPEDY,
     CARDIOLOGY,

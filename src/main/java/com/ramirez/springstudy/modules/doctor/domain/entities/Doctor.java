@@ -2,7 +2,7 @@ package com.ramirez.springstudy.modules.doctor.domain.entities;
 
 import com.ramirez.springstudy.modules.doctor.usecase.dto.UpdateDoctorDto;
 import com.ramirez.springstudy.modules.doctor.usecase.dto.CreateDoctorDto;
-import com.ramirez.springstudy.modules.doctor.domain.enums.specialty;
+import com.ramirez.springstudy.modules.doctor.domain.enums.Specialty;
 import com.ramirez.springstudy.modules.address.domain.entities.Address;
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
@@ -12,8 +12,8 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import lombok.*;
 
-@Table(name = "medicos")
-@Entity(name = "Medico")
+@Table(name = "doctors")
+@Entity(name = "Doctor")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -47,7 +47,7 @@ public class Doctor {
     private String crm;
 
     @Enumerated(EnumType.STRING)
-    private specialty specialty;
+    private Specialty specialty;
 
     @NotNull(message = ADDRESS_VALIDATION)
     @Valid

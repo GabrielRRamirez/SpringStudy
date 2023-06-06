@@ -1,7 +1,7 @@
-CREATE TABLE usuarios (
+CREATE TABLE users (
     id SERIAL NOT NULL,
     login VARCHAR(100) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
 
-    CONSTRAINT pk_id_usuarios PRIMARY KEY (id)
+    CONSTRAINT pk_id_users PRIMARY KEY (id)
 )

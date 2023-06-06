@@ -1,6 +1,6 @@
 package com.ramirez.springstudy.modules.doctor.usecase.dto;
 
-import com.ramirez.springstudy.modules.doctor.domain.enums.specialty;
+import com.ramirez.springstudy.modules.doctor.domain.enums.Specialty;
 
 public record CreateDoctorDto(
 
@@ -8,6 +8,6 @@ public record CreateDoctorDto(
         String email,
         String telephone,
         String crm,
-        specialty specialty,
+        Specialty specialty,
         AddressDoctorDto address) {
 }

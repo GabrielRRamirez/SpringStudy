@@ -1,1 +1,0 @@
-ALTER TABLE medicos ADD COLUMN telephone VARCHAR(20);
